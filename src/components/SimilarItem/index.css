@@ -1,0 +1,19 @@
+.similarlist-container {
+  background-color: #272727;
+  margin: 10px;
+  border-radius: 10px;
+  width: 25%;
+  padding: 10px;
+}
+.Role {
+  font-size: 14px;
+}
+.heading-desc {
+  font-size: 19px;
+  color: #ffff;
+}
+.space-between{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

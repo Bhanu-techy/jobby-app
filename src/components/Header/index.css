@@ -1,0 +1,34 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.websitelogo {
+  width: 100px;
+}
+.navbar {
+  padding: 10px;
+  height: 10vh;
+  background-color: #272727;
+}
+ul {
+  list-style: none;
+}
+.navlist-items {
+  display: flex;
+}
+.navlist {
+  margin-right: 10px;
+  text-decoration: none;
+  font-family: roboto;
+  color: #ffff;
+}
+.logoutbtn {
+  background-color: #4f46e5;
+  color: #ffff;
+  border: 0px;
+  border-radius: 5px;
+  width: 110px;
+  height: 25px;
+}
