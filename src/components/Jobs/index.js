@@ -65,7 +65,7 @@ class Jobs extends Component {
     apiStatus: apiStatusConstants.initial,
     apiJobsStatus: apiJobsStatusConstants.initial,
     searchInput: '',
-    minimumSalary: 0,
+    minimumSalary: '',
     employmentType: [],
   }
 
@@ -99,7 +99,7 @@ class Jobs extends Component {
         profileDetails: updatedprofileDetails,
         apiStatus: apiStatusConstants.success,
       })
-    } else if (response.status === 401) {
+    } else {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
@@ -142,10 +142,6 @@ class Jobs extends Component {
     this.getProfileDetails()
   }
 
-  onChangeSalary = salary => {
-    this.setState({minimumSalary: salary}, this.getJobDetails)
-  }
-
   onGetProfileFailureView = () => (
     <button type="button" onClick={this.onRetryProfile}>
       Retry
@@ -165,14 +161,19 @@ class Jobs extends Component {
     )
   }
 
-  changeEmployeeList = type => {
+  changeEmployeeList = (type, isChecked) => {
     this.setState(
       prevState => ({
-        employmentType: [...prevState.employmentType, type],
+        employmentType: isChecked
+          ? [...prevState.employmentType, type]
+          : prevState.employmentType.filter(t => t !== type),
       }),
       this.getJobDetails,
     )
-    console.log(type)
+  }
+
+  onChangeSalary = salary => {
+    this.setState({minimumSalary: salary}, this.getJobDetails)
   }
 
   onRenderProfileStatus = () => {
@@ -191,8 +192,7 @@ class Jobs extends Component {
   }
 
   onChangeSearchInput = event => {
-    this.setState({searchInput: event.target.value}, this.getJobDetails)
-    console.log(event.target)
+    this.setState({searchInput: event.target.value})
   }
 
   onGetJobsView = () => {
@@ -262,8 +262,9 @@ class Jobs extends Component {
           <h1 className="employmentType-heading">Type of Employment</h1>
           <ul>
             {employmentTypesList.map(each => {
-              const onSelectEmploymetType = () => {
-                this.changeEmployeeList(each.employmentTypeId)
+              const onSelectEmploymetType = e => {
+                const isChecked = e.target.checked
+                this.changeEmployeeList(each.employmentTypeId, isChecked)
               }
               return (
                 <li key={each.employmentTypeId} className="employmentType">
@@ -305,7 +306,7 @@ class Jobs extends Component {
           <div className="search-bar">
             <input
               type="search"
-              id="searchbox"
+              data-testid="searchbox"
               className="searchbox"
               value={searchInput}
               onChange={this.onChangeSearchInput}

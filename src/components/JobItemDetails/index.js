@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import SimilartItem from '../SimilarItem'
+import SimilarItem from '../SimilarItem'
 import './index.css'
 import Header from '../Header'
 
@@ -51,7 +51,7 @@ class JobItemDetails extends Component {
         packagePerAnnum: company.package_per_annum,
         skills: company.skills,
         lifeAtCompany: company.life_at_company,
-        wesiteUrl: company.company_website_url,
+        websiteUrl: company.company_website_url,
       }
 
       const updatedsimilarJobs = data.similar_jobs.map(each => ({
@@ -88,7 +88,7 @@ class JobItemDetails extends Component {
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
-      <p>We cannot seem to the page your are looking for</p>
+      <p>We cannot seem to find the page your are looking for</p>
       <button type="button" onClick={this.getProductDetails}>
         Retry
       </button>
@@ -157,14 +157,14 @@ class JobItemDetails extends Component {
             <h1 className="skills-heading">Life at Company</h1>
             <div className="skills-at-container">
               <p className="life-at-description">{lifeAtCompany.description}</p>
-              <img src={lifeAtCompany.image_url} alt="logo" />
+              <img src={lifeAtCompany.image_url} alt="life at company" />
             </div>
           </div>
           <div className="similar-container">
             <h2 className="skills-heading">Similar Jobs</h2>
             <ul className="similarItem-container">
               {similarJobs.map(item => (
-                <SimilartItem details={item} key={item.id} />
+                <SimilarItem details={item} key={item.id} />
               ))}
             </ul>
           </div>

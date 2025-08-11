@@ -1,6 +1,6 @@
 import {Component} from 'react'
-import './index.css'
 import Cookies from 'js-cookie'
+import './index.css'
 
 class Login extends Component {
   state = {username: '', password: '', showSubmitError: false, errorMsg: ''}
@@ -82,7 +82,7 @@ class Login extends Component {
           <button type="submit" className="login-btn">
             Login
           </button>
-          {showSubmitError && <p className="errormsg">*{errorMsg}</p>}
+          {showSubmitError && <p className="errormsg">{errorMsg}</p>}
         </form>
       </div>
     )
