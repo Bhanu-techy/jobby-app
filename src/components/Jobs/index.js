@@ -8,13 +8,6 @@ import ProfileItem from '../ProfileItem'
 
 import './index.css'
 
-const apiStatusConstants = {
-  inprogress: 'IN_PROGRESS',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  initial: 'INITIAL',
-}
-
 const apiJobsStatusConstants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -60,6 +53,26 @@ const salaryRangesList = [
   },
 ]
 
+const locationList = [
+  {locationId: 'HYDERABAD', label: 'Hyderabad'},
+  {
+    locationId: 'BANGALORE',
+    label: 'Bangalore',
+  },
+  {
+    locationId: 'CHENNAI',
+    label: 'Chennai',
+  },
+  {
+    locationId: 'DELHI',
+    label: 'Delhi',
+  },
+  {
+    locationId: 'MUMBAI',
+    label: 'Mumbai',
+  },
+]
+
 class Jobs extends Component {
   state = {
     jobsList: [],
@@ -67,6 +80,7 @@ class Jobs extends Component {
     searchInput: '',
     minimumSalary: '',
     employmentType: [],
+    locationarr: [],
   }
 
   componentDidMount() {
@@ -81,7 +95,6 @@ class Jobs extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
     const {searchInput, employmentType, minimumSalary} = this.state
-    console.log(minimumSalary)
 
     const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join()}&minimum_package=${minimumSalary}&search=${searchInput}`
 
@@ -142,14 +155,30 @@ class Jobs extends Component {
     }
   }
 
+  onChangeLocation = location => {
+    this.setState(prevState => ({
+      locationarr: [...prevState.locationarr, location],
+    }))
+  }
+
   onGetJobsView = () => {
-    const {jobsList} = this.state
+    const {jobsList, locationarr} = this.state
+
+    console.log(locationarr)
+
+    const newList =
+      locationarr.length > 0
+        ? jobsList.filter(job =>
+            locationarr.some(loc => job.location.toUpperCase() === loc),
+          )
+        : jobsList
+
     const noJobsview = jobsList.length > 0 ? 'nojobcss' : ''
     const jobsview = jobsList.length > 0 ? '' : 'nojobcss'
     return (
       <>
         <ul className={`${jobsview}`}>
-          {jobsList.map(each => (
+          {newList.map(each => (
             <JobItems jobdetails={each} key={each.id} />
           ))}
         </ul>
@@ -255,6 +284,23 @@ class Jobs extends Component {
                   </li>
                 )
               })}
+            </ul>
+            <hr className="left-line" />
+          </div>
+          <div>
+            <h1 className="employmentType-heading">Location</h1>
+            <ul className="location-list">
+              {locationList.map(each => (
+                <li key={each.locationId}>
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    id={each.locationId}
+                    onChange={() => this.onChangeLocation(each.locationId)}
+                  />
+                  <label htmlFor={each.locationId}>{each.label}</label>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -31,7 +31,7 @@ class ProfileItem extends Component {
     const response = await fetch(url, options)
 
     const data = await response.json()
-    console.log(data)
+
     if (response.ok) {
       const updatedprofileDetails = {
         name: data.profile_details.name,
@@ -62,7 +62,7 @@ class ProfileItem extends Component {
 
   onGetProfileView = () => {
     const {profileDetails} = this.state
-    console.log(profileDetails)
+
     const {name, profileImageUrl, shortBio} = profileDetails
 
     return (

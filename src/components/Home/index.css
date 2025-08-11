@@ -33,3 +33,16 @@
   border-radius: 10px;
   font-size: 22px;
 }
+
+@media (max-width : 768px){
+  .home-heading{
+    font-size: 30px;
+    width: 95%;
+  }.paragraph{
+    font-size: 22px;
+  }.findjobs-btn{
+    width: 120px;
+    height: 40px;
+    font-size: 16;
+  }
+}

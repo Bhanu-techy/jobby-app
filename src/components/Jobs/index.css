@@ -59,6 +59,10 @@
 .employmentType {
   width: 200px;
 }
+.location-list {
+  display: flex;
+  flex-direction: column;
+}
 label {
   color: #ffff;
 }
@@ -154,14 +158,17 @@ p {
   }
   .Salarytype {
     width: 200px;
-  }.search-bar{
+  }
+  .search-bar {
     width: 200px;
-  }.search-icon {
-  width: 15px;
-  color: #ffff;
-  height: 22px;
-}.jobs-right-container{
-  justify-content: center;
-  width: 95vw;
-}
+  }
+  .search-icon {
+    width: 15px;
+    color: #ffff;
+    height: 22px;
+  }
+  .jobs-right-container {
+    justify-content: center;
+    width: 95vw;
+  }
 }
