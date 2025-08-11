@@ -314,7 +314,7 @@ class Jobs extends Component {
             <input
               type="search"
               data-testid="searchbox"
-              className="search"
+              className="searchInput"
               value={searchInput}
               onChange={this.onChangeSearchInput}
             />

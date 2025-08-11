@@ -104,7 +104,7 @@ label {
   border-radius: 5px;
   margin: 10px;
 }
-.search {
+.searchInput{
   background-color: transparent;
   flex-grow: 1;
   width: 20px;
