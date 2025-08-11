@@ -15,14 +15,14 @@ const JobItems = props => {
   } = jobdetails
 
   return (
-    <Link to={`/jobs/${id}`}>
+    <Link to={`/jobs/${id}`} className="link">
       <li className="jobs-card">
         <div className="job-card-header">
           <div>
             <img
               src={companyLogoUrl}
               alt="company logo"
-              className="job details company logo"
+              className="company logo"
             />
           </div>
           <div className="job-card-title">
