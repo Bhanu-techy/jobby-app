@@ -105,11 +105,14 @@ class Jobs extends Component {
   }
 
   getJobDetails = async () => {
+    this.setState({apiJobsStatus: apiJobsStatusConstants.inProgress})
+
     const jwtToken = Cookies.get('jwt_token')
     const {searchInput, employmentType, minimumSalary} = this.state
     console.log(minimumSalary)
 
     const jobsApiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join()}&minimum_package=${minimumSalary}&search=${searchInput}`
+
     const optionsJobs = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -185,7 +188,7 @@ class Jobs extends Component {
       case apiStatusConstants.failure:
         return this.onGetProfileFailureView()
       case apiStatusConstants.inprogress:
-        return this.renderLoadingView()
+        return this.renderLoader()
       default:
         return null
     }
@@ -193,6 +196,10 @@ class Jobs extends Component {
 
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
+  }
+
+  onClickSearchBtn = () => {
+    this.getJobDetails()
   }
 
   onGetJobsView = () => {
@@ -229,7 +236,7 @@ class Jobs extends Component {
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
-      <p>We cannot seem to find the page your are looking for</p>
+      <p>We cannot seem to find the page you are looking for</p>
       <button type="button" className="retrybtn" onClick={this.getJobDetails}>
         Retry
       </button>
@@ -245,7 +252,7 @@ class Jobs extends Component {
       case apiJobsStatusConstants.failure:
         return this.onGetJobsFailureView()
       case apiJobsStatusConstants.inProgress:
-        return this.renderLoadingView()
+        return this.renderLoader()
       default:
         return null
     }
@@ -307,7 +314,7 @@ class Jobs extends Component {
             <input
               type="search"
               data-testid="searchbox"
-              className="searchbox"
+              className="search"
               value={searchInput}
               onChange={this.onChangeSearchInput}
             />
@@ -315,7 +322,7 @@ class Jobs extends Component {
               type="button"
               className="searchbtn"
               data-testid="searchButton"
-              onClick={this.getJobDetails}
+              onClick={this.onClickSearchBtn}
             >
               <BsSearch className="search-icon" />
             </button>
@@ -330,6 +337,12 @@ class Jobs extends Component {
     <div data-testid="loader" className="loader-container">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
+  )
+
+  renderFailureView = () => (
+    <button type="button" onClick={this.getProfileDetails}>
+      Retry
+    </button>
   )
 
   renderResultView = () => {
