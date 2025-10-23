@@ -1,4 +1,6 @@
-In this project, let's build a **Jobby App** by applying the concepts we have learned till now.
+### Title
+
+***Jobby App***
 
 ### Refer to videos below:
 
@@ -73,10 +75,10 @@ In this project, let's build a **Jobby App** by applying the concepts we have le
 ### Completion Instructions
 
 <details>
-<summary>Functionality to be added</summary>
+<summary>Functionalities</summary>
 <br/>
 
-The app must have the following functionalities
+The app had the following functionalities
 
 - **Login Route**
 
@@ -319,22 +321,9 @@ Returns a response containing the job details
 
 ### Quick Tips
 
-<details>
-<summary>Click to view</summary>
-<br>
 
-- To convert a list of items as a comma-separated string we can use the array method `join()`
 
-</details>
-
-### Important Note
-
-<details>
-<summary>Click to view</summary>
-
-<br/>
-
-**The following instructions are required for the tests to pass**
+### Pages
 
 - Render `Home` Route component when the path in URL matches `/`
 - Render `Login` Route component when the path in URL matches `/login`
@@ -377,56 +366,11 @@ Returns a response containing the job details
   - The life at company image should have the alt as **life at company**
   - The skill images should have the alt as the value of the key `name` from each object in the **skills** list received from the job details response
   - The company logo image in similar job item should have the alt as **similar job company logo**
-  </details>
 
-### Resources
 
-<details>
-<summary>Image URLs</summary>
+  ```text
+   username: rahul
+   password: rahul@2021
 
-- [https://assets.ccbp.in/frontend/react-js/home-sm-bg.png](https://assets.ccbp.in/frontend/react-js/home-sm-bg.png)
-- [https://assets.ccbp.in/frontend/react-js/home-lg-bg.png](https://assets.ccbp.in/frontend/react-js/home-lg-bg.png)
-- [https://assets.ccbp.in/frontend/react-js/profile-bg.png](https://assets.ccbp.in/frontend/react-js/profile-bg.png)
-- [https://assets.ccbp.in/frontend/react-js/logo-img.png](https://assets.ccbp.in/frontend/react-js/logo-img.png) alt should be **website logo**
-- [https://assets.ccbp.in/frontend/react-js/failure-img.png](https://assets.ccbp.in/frontend/react-js/failure-img.png) alt should be **failure view**
-- [https://assets.ccbp.in/frontend/react-js/no-jobs-img.png](https://assets.ccbp.in/frontend/react-js/no-jobs-img.png) alt should be **no jobs**
-- [https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png](https://assets.ccbp.in/frontend/react-js/jobby-app-not-found-img.png) alt should be **not found**
+  ```
 
-</details>
-
-<details>
-<summary>Colors</summary>
-
-<br/>
-<div style="background-color: #64748b; width: 150px; padding: 10px; color: white">Hex: #64748b</div>
-<div style="background-color: #4f46e5; width: 150px; padding: 10px; color: white">Hex: #4f46e5</div>
-<div style="background-color: #f8fafc; width: 150px; padding: 10px; color: black">Hex: #f8fafc</div>
-<div style="background-color: #272727; width: 150px; padding: 10px; color: white">Hex: #272727</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
-<div style="background-color: #b6c5ff; width: 150px; padding: 10px; color: black">Hex: #b6c5ff</div>
-<div style="background-color: #6366f1; width: 150px; padding: 10px; color: white">Hex: #6366f1</div>
-<div style="background-color: #2c364c; width: 150px; padding: 10px; color: white">Hex: #2c364c</div>
-<div style="background-color: #000000; width: 150px; padding: 10px; color: white">Hex: #000000</div>
-<div style="background-color: #f1f5f9; width: 150px; padding: 10px; color: black">Hex: #f1f5f9</div>
-<div style="background-color: #fbbf24; width: 150px; padding: 10px; color: white">Hex: #fbbf24</div>
-<div style="background-color: #202020; width: 150px; padding: 10px; color: white">Hex: #202020</div>
-<div style="background-color: #cbd5e1; width: 150px; padding: 10px; color: black">Hex: #cbd5e1</div>
-<div style="background-color: #7e858e; width: 150px; padding: 10px; color: black">Hex: #7e858e</div>
-<div style="background-color: #121212; width: 150px; padding: 10px; color: white">Hex: #121212</div>
-<div style="background-color: #475569; width: 150px; padding: 10px; color: white">Hex: #475569</div>
-<div style="background-color: #ff0b37; width: 150px; padding: 10px; color: white">Hex: #ff0b37</div>
-<br/>
-</details>
-
-<details>
-<summary>Font-families</summary>
-
-- Roboto
-</details>
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
