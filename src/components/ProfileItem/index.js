@@ -74,11 +74,17 @@ class ProfileItem extends Component {
     )
   }
 
-  renderProfileLoader = () => (
-    <div data-testid="loader" className="Profile-loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-    </div>
-  )
+  renderProfileLoader = () => {
+    const {apiStatus} = this.state
+    if (apiStatus === apiStatusConstants.inprogress) {
+      return (
+        <div data-testid="loader" className="Profile-loader">
+          <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+        </div>
+      )
+    }
+    return null
+  }
 
   onRenderProfileStatus = () => {
     const {apiStatus} = this.state

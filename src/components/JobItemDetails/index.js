@@ -75,11 +75,18 @@ class JobItemDetails extends Component {
     }
   }
 
-  renderLoader = () => (
-    <div data-testid="loader" className="loader-container">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-    </div>
-  )
+  renderLoader = () => {
+    const {apiStatus} = this.state
+
+    if (apiStatus === apiStatusConstants.inprogress) {
+      return (
+        <div data-testid="loader" className="loader-container">
+          <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+        </div>
+      )
+    }
+    return null
+  }
 
   renderFailureView = () => (
     <div className="Failure-view">

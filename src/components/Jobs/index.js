@@ -329,11 +329,17 @@ class Jobs extends Component {
     )
   }
 
-  renderLoader = () => (
-    <div data-testid="loader" className="loader-container">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-    </div>
-  )
+  renderLoader = () => {
+    const {apiJobsStatus} = this.state
+    if (apiJobsStatus === apiJobsStatusConstants.inProgress) {
+      return (
+        <div data-testid="loader" className="loader-container">
+          <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+        </div>
+      )
+    }
+    return null
+  }
 
   renderFailureView = () => (
     <button type="button" onClick={this.getProfileDetails}>
