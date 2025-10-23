@@ -258,9 +258,6 @@ Returns a response containing the job details
 
 </details>
 
-### Quick Tips
-
-
 
 ### Pages
 
@@ -279,7 +276,7 @@ Returns a response containing the job details
 
   ```
 
-- Wrap the `Loader` component with an HTML container element and add the `data-testid` attribute value as **loader** to it
+- Wraped the `Loader` component with an HTML container element and add the `data-testid` attribute value as **loader** to it
 
   ```jsx
   <div className="loader-container" data-testid="loader">
@@ -287,29 +284,8 @@ Returns a response containing the job details
   </div>
   ```
 
-- **Jobs Route**
-
-  - The HTML button element with search icon should have the `data-testid` attribute value as **searchButton** to it
-
-  ```jsx
-  <button type="button" data-testid="searchButton">
-    <BsSearch className="search-icon" />
-  </button>
-  ```
-
-  - The profile image should have the alt as **profile**
-  - The company logo images in Jobs Route should have the alt as **company logo**
-
 - **Job Details Route**
   - The company logo image should have the alt as **job details company logo**
   - The life at company image should have the alt as **life at company**
   - The skill images should have the alt as the value of the key `name` from each object in the **skills** list received from the job details response
   - The company logo image in similar job item should have the alt as **similar job company logo**
-
-
-  ```text
-   username: rahul
-   password: rahul@2021
-
-  ```
-
